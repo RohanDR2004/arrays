@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Categories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Task 18: Using Conditional Statements to Determine Student Performance Categories</h1>
+
+    <div class="section">
+        <h2>Conditions Used</h2>
+        <table>
+            <tr><th>Condition</th><th>Category</th></tr>
+            <tr><td><code>if ($mark &gt; 90)</code></td><td>Good</td></tr>
+            <tr><td><code>elseif ($mark &gt; 35 &amp;&amp; $mark &lt; 70)</code></td><td>Average</td></tr>
+            <tr><td><code>elseif ($mark &lt; 35)</code></td><td>Fail</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Student Results</h2>
+        <table>
+            <tr><th>Mark</th><th>Value</th><th>Condition Matched</th><th>Category</th></tr>
+            <tr><td>Mark 1</td><td>28</td><td><code>28 &lt; 35</code></td><td class="cat-fail">Fail</td></tr>
+<tr><td>Mark 2</td><td>67</td><td><code>67 &gt; 35 &amp;&amp; 67 &lt; 70</code></td><td class="cat-average">Average</td></tr>
+<tr><td>Mark 3</td><td>95</td><td><code>95 &gt; 90</code></td><td class="cat-good">Good</td></tr>
+        </table>
+
+        <h3>Summary</h3>
+        <ul>
+            <li>Mark 1 = 28 &rarr; <strong>Fail</strong></li>
+<li>Mark 2 = 67 &rarr; <strong>Average</strong></li>
+<li>Mark 3 = 95 &rarr; <strong>Good</strong></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Previous Tasks</h2>
+        <ul>
+            <li><a href="comparison-logical-operators.html">Task 16: Comparison and Logical Operators</a></li>
+            <li><a href="multidimensional-arrays.html">Multidimensional Arrays</a></li>
+            <li><a href="basic-arrays.html">Basic Arrays</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
