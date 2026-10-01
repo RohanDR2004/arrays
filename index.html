@@ -1,56 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>PHP Arrays Task</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Multidimensional Arrays</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
+    <h1>PHP Multidimensional Arrays Task</h1>
 
-<h2>Indexed Array:</h2>
+    <div class="section">
+        <h2>Part 1: Indexed Array <code>$details</code></h2>
 
-<p>
-Array (
-[0] => 225
-[1] => Dreams
-[2] => Glass
-[3] => 30
-[4] => 25
-[5] => 1
-[6] => Globe
+        <h3>Original array (after adding ['ash', 'tokyo', '20', 'male'])</h3>
+        <pre>Array
+(
+    [0] => Array
+        (
+            [0] => rohan
+            [1] => bangalore
+            [2] => 21
+            [3] => male
+        )
+
+    [1] => Array
+        (
+            [0] => priya
+            [1] => mysore
+            [2] => 22
+            [3] => female
+        )
+
+    [2] => Array
+        (
+            [0] => john
+            [1] => london
+            [2] => 25
+            [3] => male
+        )
+
+    [3] => Array
+        (
+            [0] => ash
+            [1] => tokyo
+            [2] => 20
+            [3] => male
+        )
+
 )
-</p>
+</pre>
 
-<h2>Associative Array:</h2>
+        <h3>1. After deleting the first item from the 0th index array</h3>
+        <pre>Array
+(
+    [0] => Array
+        (
+            [1] => bangalore
+            [2] => 21
+            [3] => male
+        )
 
-<p>
-Array (
-[0] => Couch
-[Ice] => India
-[6] => Box
-[Trip] => Range
+    [1] => Array
+        (
+            [0] => priya
+            [1] => mysore
+            [2] => 22
+            [3] => female
+        )
+
+    [2] => Array
+        (
+            [0] => john
+            [1] => london
+            [2] => 25
+            [3] => male
+        )
+
+    [3] => Array
+        (
+            [0] => ash
+            [1] => tokyo
+            [2] => 20
+            [3] => male
+        )
+
 )
-</p>
+</pre>
 
-<h2>Combined Array:</h2>
+        <h3>2. Only the cities</h3>
+        <ul>
+            <li>bangalore</li>
+<li>mysore</li>
+<li>london</li>
+<li>tokyo</li>
+        </ul>
 
-<p>
-Array (
-[0] => 225
-[1] => Dreams
-[2] => Glass
-[3] => 30
-[4] => 25
-[5] => 1
-[6] => Globe
-[7] => Couch
-[Ice] => India
-[8] => Box
-[Trip] => Range
+        <h3>3. Entire array from the last index</h3>
+        <pre>Array
+(
+    [0] => ash
+    [1] => tokyo
+    [2] => 20
+    [3] => male
 )
-</p>
+</pre>
+    </div>
 
-<h2>3rd value from Indexed Array: Glass</h2>
+    <div class="section">
+        <h2>Part 2: Associative Array <code>$product_details</code></h2>
 
-<h2>Value for key 'Ice': India</h2>
+        <h3>Original array (after adding ['tv', 2000, '06-01-2024', 'hubli'])</h3>
+        <pre>Array
+(
+    [0] => Array
+        (
+            [product_name] => mobile
+            [price] => 15000
+            [date] => 01-01-2024
+            [address] => bangalore
+        )
 
+    [1] => Array
+        (
+            [product_name] => laptop
+            [price] => 50000
+            [date] => 03-01-2024
+            [address] => dharwad
+        )
+
+    [2] => Array
+        (
+            [product_name] => fridge
+            [price] => 25000
+            [date] => 05-01-2024
+            [address] => belgaum
+        )
+
+    [3] => Array
+        (
+            [product_name] => tv
+            [price] => 2000
+            [date] => 06-01-2024
+            [address] => hubli
+        )
+
+)
+</pre>
+
+        <h3>1. After deleting the first array item</h3>
+        <pre>Array
+(
+    [0] => Array
+        (
+            [product_name] => laptop
+            [price] => 50000
+            [date] => 03-01-2024
+            [address] => dharwad
+        )
+
+    [1] => Array
+        (
+            [product_name] => fridge
+            [price] => 25000
+            [date] => 05-01-2024
+            [address] => belgaum
+        )
+
+    [2] => Array
+        (
+            [product_name] => tv
+            [price] => 2000
+            [date] => 06-01-2024
+            [address] => hubli
+        )
+
+)
+</pre>
+
+        <h3>2. product_name where date = 06-01-2024</h3>
+        <p class="result">tv</p>
+
+        <h3>3. Last array list</h3>
+        <pre>Array
+(
+    [product_name] => tv
+    [price] => 2000
+    [date] => 06-01-2024
+    [address] => hubli
+)
+</pre>
+    </div>
+</div>
 </body>
 </html>
