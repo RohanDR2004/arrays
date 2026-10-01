@@ -48,3 +48,36 @@ pre {
     font-weight: bold;
     color: #27ae60;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+th {
+    background: #2980b9;
+    color: #fff;
+}
+
+td.true {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+td.false {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+.note {
+    background: #eef6fb;
+    border-left: 4px solid #2980b9;
+    padding: 8px 12px;
+}
