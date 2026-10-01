@@ -1,12 +1,23 @@
 <?php
 
-// Start with an empty multidimensional associative array
-$students = [];
+// Global variable
+$number = 90;
 
-// 1. Insert 3 students (each student has a name and marks)
-$students[] = ["name" => "Rohan", "marks" => 85];
-$students[] = ["name" => "Rahul", "marks" => 72];
-$students[] = ["name" => "Arun", "marks" => 91];
+// Function 1: add 10 to the global variable
+function add() {
+    global $number;
+    $old = $number;
+    $number = $number + 10;
+    echo "<p class=\"result\">Inside add(): $old + 10 = $number</p>\n";
+}
+
+// Function 2: subtract 50 from the global variable
+function sub() {
+    global $number;
+    $old = $number;
+    $number = $number - 50;
+    echo "<p class=\"result\">Inside sub(): $old - 50 = $number</p>\n";
+}
 
 ?>
 <!DOCTYPE html>
@@ -14,63 +25,63 @@ $students[] = ["name" => "Arun", "marks" => 91];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multidimensional Associative Array Loops</title>
+    <title>Global Variable Functions</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-    <h1>Task 20: Inserting and Looping Through Elements in a Multidimensional Associative Array</h1>
+    <h1>Task 22: Displaying Updated Global Variable Using Add and Subtract Functions</h1>
 
     <div class="section">
-        <h2>1. Inserting 3 Students</h2>
-        <pre>$students = [];
+        <h2>PHP Code Used</h2>
+        <pre>$number = 90;
 
-$students[] = ["name" =&gt; "Rohan", "marks" =&gt; 85];
-$students[] = ["name" =&gt; "Rahul", "marks" =&gt; 72];
-$students[] = ["name" =&gt; "Arun", "marks" =&gt; 91];</pre>
+function add() {
+    global $number;
+    $number = $number + 10;
+    echo $number;
+}
 
-        <h3>Array after inserting (print_r)</h3>
-        <pre><?php print_r($students); ?></pre>
+function sub() {
+    global $number;
+    $number = $number - 50;
+    echo $number;
+}
 
-        <p class="note">Total students inserted: <strong><?php echo count($students); ?></strong></p>
+add();
+sub();</pre>
     </div>
 
     <div class="section">
-        <h2>2. Displaying All Elements Using Nested foreach Loops</h2>
-        <pre>foreach ($students as $index =&gt; $student) {
-    foreach ($student as $key =&gt; $value) {
-        echo "$key: $value";
-    }
-}</pre>
+        <h2>Output</h2>
 
-        <h3>Output</h3>
-        <?php
-        // Outer loop: goes through each student
-        foreach ($students as $index => $student) {
-            echo "<h4>Student " . ($index + 1) . "</h4>\n";
-            echo "<ul>\n";
-            // Inner loop: goes through each key (name, marks) of the student
-            foreach ($student as $key => $value) {
-                echo "<li><strong>$key:</strong> $value</li>\n";
-            }
-            echo "</ul>\n";
-        }
-        ?>
+        <h3>Initial global value</h3>
+        <p class="result">$number = <?php echo $number; $initial = $number; ?></p>
 
-        <h3>Same Data in a Table (using a foreach loop)</h3>
+        <h3>Calling add()</h3>
+        <?php add(); ?>
+        <p>Global <code>$number</code> after add(): <strong><?php echo $number; $after_add = $number; ?></strong></p>
+
+        <h3>Calling sub()</h3>
+        <?php sub(); ?>
+        <p>Global <code>$number</code> after sub(): <strong><?php echo $number; $after_sub = $number; ?></strong></p>
+
+        <p class="note">The <strong>global</strong> keyword lets each function change the same <code>$number</code> variable.
+            So sub() starts from 100 (the value left by add()), not from 90.</p>
+
+        <h3>Summary</h3>
         <table>
-            <tr><th>No.</th><th>Name</th><th>Marks</th></tr>
-            <?php
-            foreach ($students as $index => $student) {
-                echo "<tr><td>" . ($index + 1) . "</td><td>" . $student["name"] . "</td><td>" . $student["marks"] . "</td></tr>\n";
-            }
-            ?>
+            <tr><th>Step</th><th>Value of $number</th></tr>
+            <tr><td>Initial global value</td><td><?php echo $initial; ?></td></tr>
+            <tr><td>After add()</td><td><?php echo $after_add; ?></td></tr>
+            <tr><td>After sub()</td><td><?php echo $after_sub; ?></td></tr>
         </table>
     </div>
 
     <div class="section">
         <h2>Previous Tasks</h2>
         <ul>
+            <li><a href="associative-array-loops.html">Task 20: Multidimensional Associative Array Loops</a></li>
             <li><a href="conditional-statements.html">Task 18: Conditional Statements (Student Performance)</a></li>
             <li><a href="comparison-logical-operators.html">Task 16: Comparison and Logical Operators</a></li>
             <li><a href="multidimensional-arrays.html">Multidimensional Arrays</a></li>

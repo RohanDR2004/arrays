@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multidimensional Associative Array Loops</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Task 20: Inserting and Looping Through Elements in a Multidimensional Associative Array</h1>
+
+    <div class="section">
+        <h2>1. Inserting 3 Students</h2>
+        <pre>$students = [];
+
+$students[] = ["name" =&gt; "Rohan", "marks" =&gt; 85];
+$students[] = ["name" =&gt; "Rahul", "marks" =&gt; 72];
+$students[] = ["name" =&gt; "Arun", "marks" =&gt; 91];</pre>
+
+        <h3>Array after inserting (print_r)</h3>
+        <pre>Array
+(
+    [0] => Array
+        (
+            [name] => Rohan
+            [marks] => 85
+        )
+
+    [1] => Array
+        (
+            [name] => Rahul
+            [marks] => 72
+        )
+
+    [2] => Array
+        (
+            [name] => Arun
+            [marks] => 91
+        )
+
+)
+</pre>
+
+        <p class="note">Total students inserted: <strong>3</strong></p>
+    </div>
+
+    <div class="section">
+        <h2>2. Displaying All Elements Using Nested foreach Loops</h2>
+        <pre>foreach ($students as $index =&gt; $student) {
+    foreach ($student as $key =&gt; $value) {
+        echo "$key: $value";
+    }
+}</pre>
+
+        <h3>Output</h3>
+        <h4>Student 1</h4>
+<ul>
+<li><strong>name:</strong> Rohan</li>
+<li><strong>marks:</strong> 85</li>
+</ul>
+<h4>Student 2</h4>
+<ul>
+<li><strong>name:</strong> Rahul</li>
+<li><strong>marks:</strong> 72</li>
+</ul>
+<h4>Student 3</h4>
+<ul>
+<li><strong>name:</strong> Arun</li>
+<li><strong>marks:</strong> 91</li>
+</ul>
+
+        <h3>Same Data in a Table (using a foreach loop)</h3>
+        <table>
+            <tr><th>No.</th><th>Name</th><th>Marks</th></tr>
+            <tr><td>1</td><td>Rohan</td><td>85</td></tr>
+<tr><td>2</td><td>Rahul</td><td>72</td></tr>
+<tr><td>3</td><td>Arun</td><td>91</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Previous Tasks</h2>
+        <ul>
+            <li><a href="conditional-statements.html">Task 18: Conditional Statements (Student Performance)</a></li>
+            <li><a href="comparison-logical-operators.html">Task 16: Comparison and Logical Operators</a></li>
+            <li><a href="multidimensional-arrays.html">Multidimensional Arrays</a></li>
+            <li><a href="basic-arrays.html">Basic Arrays</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
