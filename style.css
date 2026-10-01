@@ -100,3 +100,7 @@ td.cat-fail {
 a {
     color: #2980b9;
 }
+
+.section {
+    overflow-x: auto;
+}
