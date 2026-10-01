@@ -3,62 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Variable Functions</title>
+    <title>Loop-Based Multiplication Function</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-    <h1>Task 22: Displaying Updated Global Variable Using Add and Subtract Functions</h1>
+    <h1>Task 24: Loop-Based Function for Multiplying Parameters and Displaying Outputs</h1>
 
     <div class="section">
         <h2>PHP Code Used</h2>
-        <pre>$number = 90;
-
-function add() {
-    global $number;
-    $number = $number + 10;
-    echo $number;
+        <pre>function mul($a, $b) {
+    $result = $a * $b;
+    echo "$a x $b = $result";
 }
 
-function sub() {
-    global $number;
-    $number = $number - 50;
-    echo $number;
-}
-
-add();
-sub();</pre>
+for ($i = 1; $i &lt;= 5; $i++) {
+    mul($i, $i + 5);
+}</pre>
+        <p class="note">The for loop runs <strong>5 times</strong> ($i = 1 to 5).
+            On each iteration mul() is called with different values: <code>$i</code> and <code>$i + 5</code>.</p>
     </div>
 
     <div class="section">
-        <h2>Output</h2>
-
-        <h3>Initial global value</h3>
-        <p class="result">$number = 90</p>
-
-        <h3>Calling add()</h3>
-        <p class="result">Inside add(): 90 + 10 = 100</p>
-        <p>Global <code>$number</code> after add(): <strong>100</strong></p>
-
-        <h3>Calling sub()</h3>
-        <p class="result">Inside sub(): 100 - 50 = 50</p>
-        <p>Global <code>$number</code> after sub(): <strong>50</strong></p>
-
-        <p class="note">The <strong>global</strong> keyword lets each function change the same <code>$number</code> variable.
-            So sub() starts from 100 (the value left by add()), not from 90.</p>
-
-        <h3>Summary</h3>
-        <table>
-            <tr><th>Step</th><th>Value of $number</th></tr>
-            <tr><td>Initial global value</td><td>90</td></tr>
-            <tr><td>After add()</td><td>100</td></tr>
-            <tr><td>After sub()</td><td>50</td></tr>
-        </table>
+        <h2>Output: 5 Multiplication Results</h2>
+        <h3>Iteration 1: mul(1, 6)</h3>
+<p class="result">1 &times; 6 = 6</p>
+<h3>Iteration 2: mul(2, 7)</h3>
+<p class="result">2 &times; 7 = 14</p>
+<h3>Iteration 3: mul(3, 8)</h3>
+<p class="result">3 &times; 8 = 24</p>
+<h3>Iteration 4: mul(4, 9)</h3>
+<p class="result">4 &times; 9 = 36</p>
+<h3>Iteration 5: mul(5, 10)</h3>
+<p class="result">5 &times; 10 = 50</p>
     </div>
 
     <div class="section">
         <h2>Previous Tasks</h2>
         <ul>
+            <li><a href="global-variable-functions.html">Task 22: Global Variable Add and Subtract Functions</a></li>
             <li><a href="associative-array-loops.html">Task 20: Multidimensional Associative Array Loops</a></li>
             <li><a href="conditional-statements.html">Task 18: Conditional Statements (Student Performance)</a></li>
             <li><a href="comparison-logical-operators.html">Task 16: Comparison and Logical Operators</a></li>
