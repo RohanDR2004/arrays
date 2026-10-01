@@ -81,3 +81,22 @@ td.false {
     border-left: 4px solid #2980b9;
     padding: 8px 12px;
 }
+
+td.cat-good {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+td.cat-average {
+    color: #e67e22;
+    font-weight: bold;
+}
+
+td.cat-fail {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+a {
+    color: #2980b9;
+}

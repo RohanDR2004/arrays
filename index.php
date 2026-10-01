@@ -1,50 +1,36 @@
 <?php
 
-// Helper: turn a boolean into the text TRUE or FALSE
-function tf($value) {
-    return $value ? "TRUE" : "FALSE";
+// Student marks
+$marks = [
+    "Mark 1" => 28,
+    "Mark 2" => 67,
+    "Mark 3" => 95
+];
+
+// Find the category for one mark using if / elseif / else
+function getCategory($mark) {
+    if ($mark > 90) {
+        return "Good";
+    } elseif ($mark > 35 && $mark < 70) {
+        return "Average";
+    } elseif ($mark < 35) {
+        return "Fail";
+    } else {
+        return "No Category";
+    }
 }
 
-// Helper: print one table row (label, expression, result)
-function row($label, $expression, $result) {
-    $class = $result ? "true" : "false";
-    echo "<tr><td>$label</td><td><code>$expression</code></td><td class=\"$class\">" . tf($result) . "</td></tr>\n";
-}
-
-// Helper: show the datatype of $a and $b using gettype() and var_dump()
-function showTypes($a, $b) {
-    echo "<p><strong>gettype(\$a):</strong> " . gettype($a) . " &nbsp; | &nbsp; <strong>gettype(\$b):</strong> " . gettype($b) . "</p>\n";
-    echo "<pre>var_dump(\$a): ";
-    var_dump($a);
-    echo "var_dump(\$b): ";
-    var_dump($b);
-    echo "</pre>\n";
-}
-
-// Helper: print a table with all 8 comparison operators for $a and $b
-function comparisonTable($a, $b) {
-    echo "<table>\n<tr><th>Operator</th><th>Expression</th><th>Result</th></tr>\n";
-    row("Equal (==)", "\$a == \$b", $a == $b);
-    row("Not Equal (!=)", "\$a != \$b", $a != $b);
-    row("Identical (===)", "\$a === \$b", $a === $b);
-    row("Not Identical (!==)", "\$a !== \$b", $a !== $b);
-    row("Greater Than (&gt;)", "\$a &gt; \$b", $a > $b);
-    row("Less Than (&lt;)", "\$a &lt; \$b", $a < $b);
-    row("Greater Than or Equal (&gt;=)", "\$a &gt;= \$b", $a >= $b);
-    row("Less Than or Equal (&lt;=)", "\$a &lt;= \$b", $a <= $b);
-    echo "</table>\n";
-}
-
-// Helper: print a table with the logical operators for $a and $b
-function logicalTable($a, $b) {
-    echo "<table>\n<tr><th>Operator</th><th>Expression</th><th>Result</th></tr>\n";
-    row("AND (&amp;&amp;)", "(\$a &gt; 0) &amp;&amp; (\$b &gt; 0)", ($a > 0) && ($b > 0));
-    row("AND (&amp;&amp;)", "(\$a &lt; \$b) &amp;&amp; (\$b &lt; 100)", ($a < $b) && ($b < 100));
-    row("OR (||)", "(\$a &gt; 0) || (\$b &gt; 0)", ($a > 0) || ($b > 0));
-    row("OR (||)", "(\$a &gt; 50) || (\$b &gt; 50)", ($a > 50) || ($b > 50));
-    row("NOT (!)", "!(\$a &gt; 0)", !($a > 0));
-    row("NOT (!)", "!(\$b &gt; 0)", !($b > 0));
-    echo "</table>\n";
+// Show which condition matched, so the trainer can see the logic
+function getCondition($mark) {
+    if ($mark > 90) {
+        return "$mark &gt; 90";
+    } elseif ($mark > 35 && $mark < 70) {
+        return "$mark &gt; 35 &amp;&amp; $mark &lt; 70";
+    } elseif ($mark < 35) {
+        return "$mark &lt; 35";
+    } else {
+        return "No condition matched";
+    }
 }
 
 ?>
@@ -53,73 +39,57 @@ function logicalTable($a, $b) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparison and Logical Operators</title>
+    <title>Student Performance Categories</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-    <h1>Task 16: Applying Comparison and Logical Operators on Variables with Type Verification</h1>
+    <h1>Task 18: Using Conditional Statements to Determine Student Performance Categories</h1>
 
-    <!-- ================= PART 1: COMPARISON OPERATORS ================= -->
     <div class="section">
-        <h2>Part 1: Comparison Operators</h2>
-
-        <h3>Case 1: $a = "raj"; $b = "raj";</h3>
-        <?php
-        $a = "raj";
-        $b = "raj";
-        showTypes($a, $b);
-        comparisonTable($a, $b);
-        ?>
-        <p class="note">Both values are the same string, so == and === are both TRUE. Strings are compared alphabetically for &gt; and &lt;.</p>
-
-        <h3>Case 2: $a = 90; $b = 34;</h3>
-        <?php
-        $a = 90;
-        $b = 34;
-        showTypes($a, $b);
-        comparisonTable($a, $b);
-        ?>
-        <p class="note">90 is greater than 34, so &gt;, &gt;=, != and !== are TRUE.</p>
-
-        <h3>Difference between == and === : $a = 90; $b = "90";</h3>
-        <?php
-        $a = 90;
-        $b = "90";
-        showTypes($a, $b);
-        echo "<table>\n<tr><th>Operator</th><th>Expression</th><th>Result</th></tr>\n";
-        row("Equal (==)", "\$a == \$b", $a == $b);
-        row("Identical (===)", "\$a === \$b", $a === $b);
-        row("Not Equal (!=)", "\$a != \$b", $a != $b);
-        row("Not Identical (!==)", "\$a !== \$b", $a !== $b);
-        echo "</table>\n";
-        ?>
-        <p class="note"><strong>==</strong> only checks the value (90 equals "90" → TRUE).
-            <strong>===</strong> checks the value AND the datatype (integer is not string → FALSE).</p>
+        <h2>Conditions Used</h2>
+        <table>
+            <tr><th>Condition</th><th>Category</th></tr>
+            <tr><td><code>if ($mark &gt; 90)</code></td><td>Good</td></tr>
+            <tr><td><code>elseif ($mark &gt; 35 &amp;&amp; $mark &lt; 70)</code></td><td>Average</td></tr>
+            <tr><td><code>elseif ($mark &lt; 35)</code></td><td>Fail</td></tr>
+        </table>
     </div>
 
-    <!-- ================= PART 2: LOGICAL OPERATORS ================= -->
     <div class="section">
-        <h2>Part 2: Logical Operators</h2>
+        <h2>Student Results</h2>
+        <table>
+            <tr><th>Mark</th><th>Value</th><th>Condition Matched</th><th>Category</th></tr>
+            <?php
+            foreach ($marks as $label => $mark) {
+                $category = getCategory($mark);
+                echo "<tr>";
+                echo "<td>$label</td>";
+                echo "<td>$mark</td>";
+                echo "<td><code>" . getCondition($mark) . "</code></td>";
+                echo "<td class=\"cat-" . strtolower($category) . "\">$category</td>";
+                echo "</tr>\n";
+            }
+            ?>
+        </table>
 
-        <h3>Case 1: $a = 14; $b = 40;</h3>
-        <?php
-        $a = 14;
-        $b = 40;
-        showTypes($a, $b);
-        logicalTable($a, $b);
-        ?>
+        <h3>Summary</h3>
+        <ul>
+            <?php
+            foreach ($marks as $label => $mark) {
+                echo "<li>$label = $mark &rarr; <strong>" . getCategory($mark) . "</strong></li>\n";
+            }
+            ?>
+        </ul>
+    </div>
 
-        <h3>Case 2: $a = -2; $b = 70;</h3>
-        <?php
-        $a = -2;
-        $b = 70;
-        showTypes($a, $b);
-        logicalTable($a, $b);
-        ?>
-        <p class="note"><strong>&amp;&amp;</strong> is TRUE only when both conditions are TRUE.
-            <strong>||</strong> is TRUE when at least one condition is TRUE.
-            <strong>!</strong> reverses the result.</p>
+    <div class="section">
+        <h2>Previous Tasks</h2>
+        <ul>
+            <li><a href="comparison-logical-operators.html">Task 16: Comparison and Logical Operators</a></li>
+            <li><a href="multidimensional-arrays.html">Multidimensional Arrays</a></li>
+            <li><a href="basic-arrays.html">Basic Arrays</a></li>
+        </ul>
     </div>
 </div>
 </body>

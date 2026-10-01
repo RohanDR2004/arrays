@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison and Logical Operators</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Task 16: Applying Comparison and Logical Operators on Variables with Type Verification</h1>
+
+    <!-- ================= PART 1: COMPARISON OPERATORS ================= -->
+    <div class="section">
+        <h2>Part 1: Comparison Operators</h2>
+
+        <h3>Case 1: $a = "raj"; $b = "raj";</h3>
+        <p><strong>gettype($a):</strong> string &nbsp; | &nbsp; <strong>gettype($b):</strong> string</p>
+<pre>var_dump($a): string(3) "raj"
+var_dump($b): string(3) "raj"
+</pre>
+<table>
+<tr><th>Operator</th><th>Expression</th><th>Result</th></tr>
+<tr><td>Equal (==)</td><td><code>$a == $b</code></td><td class="true">TRUE</td></tr>
+<tr><td>Not Equal (!=)</td><td><code>$a != $b</code></td><td class="false">FALSE</td></tr>
+<tr><td>Identical (===)</td><td><code>$a === $b</code></td><td class="true">TRUE</td></tr>
+<tr><td>Not Identical (!==)</td><td><code>$a !== $b</code></td><td class="false">FALSE</td></tr>
+<tr><td>Greater Than (&gt;)</td><td><code>$a &gt; $b</code></td><td class="false">FALSE</td></tr>
+<tr><td>Less Than (&lt;)</td><td><code>$a &lt; $b</code></td><td class="false">FALSE</td></tr>
+<tr><td>Greater Than or Equal (&gt;=)</td><td><code>$a &gt;= $b</code></td><td class="true">TRUE</td></tr>
+<tr><td>Less Than or Equal (&lt;=)</td><td><code>$a &lt;= $b</code></td><td class="true">TRUE</td></tr>
+</table>
+        <p class="note">Both values are the same string, so == and === are both TRUE. Strings are compared alphabetically for &gt; and &lt;.</p>
+
+        <h3>Case 2: $a = 90; $b = 34;</h3>
+        <p><strong>gettype($a):</strong> integer &nbsp; | &nbsp; <strong>gettype($b):</strong> integer</p>
+<pre>var_dump($a): int(90)
+var_dump($b): int(34)
+</pre>
+<table>
+<tr><th>Operator</th><th>Expression</th><th>Result</th></tr>
+<tr><td>Equal (==)</td><td><code>$a == $b</code></td><td class="false">FALSE</td></tr>
+<tr><td>Not Equal (!=)</td><td><code>$a != $b</code></td><td class="true">TRUE</td></tr>
+<tr><td>Identical (===)</td><td><code>$a === $b</code></td><td class="false">FALSE</td></tr>
+<tr><td>Not Identical (!==)</td><td><code>$a !== $b</code></td><td class="true">TRUE</td></tr>
+<tr><td>Greater Than (&gt;)</td><td><code>$a &gt; $b</code></td><td class="true">TRUE</td></tr>
+<tr><td>Less Than (&lt;)</td><td><code>$a &lt; $b</code></td><td class="false">FALSE</td></tr>
+<tr><td>Greater Than or Equal (&gt;=)</td><td><code>$a &gt;= $b</code></td><td class="true">TRUE</td></tr>
+<tr><td>Less Than or Equal (&lt;=)</td><td><code>$a &lt;= $b</code></td><td class="false">FALSE</td></tr>
+</table>
+        <p class="note">90 is greater than 34, so &gt;, &gt;=, != and !== are TRUE.</p>
+
+        <h3>Difference between == and === : $a = 90; $b = "90";</h3>
+        <p><strong>gettype($a):</strong> integer &nbsp; | &nbsp; <strong>gettype($b):</strong> string</p>
+<pre>var_dump($a): int(90)
+var_dump($b): string(2) "90"
+</pre>
+<table>
+<tr><th>Operator</th><th>Expression</th><th>Result</th></tr>
+<tr><td>Equal (==)</td><td><code>$a == $b</code></td><td class="true">TRUE</td></tr>
+<tr><td>Identical (===)</td><td><code>$a === $b</code></td><td class="false">FALSE</td></tr>
+<tr><td>Not Equal (!=)</td><td><code>$a != $b</code></td><td class="false">FALSE</td></tr>
+<tr><td>Not Identical (!==)</td><td><code>$a !== $b</code></td><td class="true">TRUE</td></tr>
+</table>
+        <p class="note"><strong>==</strong> only checks the value (90 equals "90" → TRUE).
+            <strong>===</strong> checks the value AND the datatype (integer is not string → FALSE).</p>
+    </div>
+
+    <!-- ================= PART 2: LOGICAL OPERATORS ================= -->
+    <div class="section">
+        <h2>Part 2: Logical Operators</h2>
+
+        <h3>Case 1: $a = 14; $b = 40;</h3>
+        <p><strong>gettype($a):</strong> integer &nbsp; | &nbsp; <strong>gettype($b):</strong> integer</p>
+<pre>var_dump($a): int(14)
+var_dump($b): int(40)
+</pre>
+<table>
+<tr><th>Operator</th><th>Expression</th><th>Result</th></tr>
+<tr><td>AND (&amp;&amp;)</td><td><code>($a &gt; 0) &amp;&amp; ($b &gt; 0)</code></td><td class="true">TRUE</td></tr>
+<tr><td>AND (&amp;&amp;)</td><td><code>($a &lt; $b) &amp;&amp; ($b &lt; 100)</code></td><td class="true">TRUE</td></tr>
+<tr><td>OR (||)</td><td><code>($a &gt; 0) || ($b &gt; 0)</code></td><td class="true">TRUE</td></tr>
+<tr><td>OR (||)</td><td><code>($a &gt; 50) || ($b &gt; 50)</code></td><td class="false">FALSE</td></tr>
+<tr><td>NOT (!)</td><td><code>!($a &gt; 0)</code></td><td class="false">FALSE</td></tr>
+<tr><td>NOT (!)</td><td><code>!($b &gt; 0)</code></td><td class="false">FALSE</td></tr>
+</table>
+
+        <h3>Case 2: $a = -2; $b = 70;</h3>
+        <p><strong>gettype($a):</strong> integer &nbsp; | &nbsp; <strong>gettype($b):</strong> integer</p>
+<pre>var_dump($a): int(-2)
+var_dump($b): int(70)
+</pre>
+<table>
+<tr><th>Operator</th><th>Expression</th><th>Result</th></tr>
+<tr><td>AND (&amp;&amp;)</td><td><code>($a &gt; 0) &amp;&amp; ($b &gt; 0)</code></td><td class="false">FALSE</td></tr>
+<tr><td>AND (&amp;&amp;)</td><td><code>($a &lt; $b) &amp;&amp; ($b &lt; 100)</code></td><td class="true">TRUE</td></tr>
+<tr><td>OR (||)</td><td><code>($a &gt; 0) || ($b &gt; 0)</code></td><td class="true">TRUE</td></tr>
+<tr><td>OR (||)</td><td><code>($a &gt; 50) || ($b &gt; 50)</code></td><td class="true">TRUE</td></tr>
+<tr><td>NOT (!)</td><td><code>!($a &gt; 0)</code></td><td class="true">TRUE</td></tr>
+<tr><td>NOT (!)</td><td><code>!($b &gt; 0)</code></td><td class="false">FALSE</td></tr>
+</table>
+        <p class="note"><strong>&amp;&amp;</strong> is TRUE only when both conditions are TRUE.
+            <strong>||</strong> is TRUE when at least one condition is TRUE.
+            <strong>!</strong> reverses the result.</p>
+    </div>
+</div>
+</body>
+</html>
