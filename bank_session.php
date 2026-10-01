@@ -1,3 +1,15 @@
+<?php
+
+// Page 1: start the session and store bank details in it
+session_start();
+
+$_SESSION["account_holder"] = "Rohan DR";
+$_SESSION["account_number"] = "123456789012";
+$_SESSION["bank_name"] = "Sample National Bank";
+$_SESSION["ifsc_code"] = "SNBK0001234";
+$_SESSION["branch"] = "Hubli";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,20 +33,20 @@ $_SESSION["ifsc_code"] = "SNBK0001234";
 $_SESSION["branch"] = "Hubli";</pre>
 
         <p class="result">Bank details stored in the session successfully.</p>
-        <p>Session ID: <code>ooivabru1bn7jn3c0r8v0gtij6</code></p>
+        <p>Session ID: <code><?php echo session_id(); ?></code></p>
 
         <h3>Values now stored in $_SESSION</h3>
         <table>
             <tr><th>Session Key</th><th>Value</th></tr>
-            <tr><td><code>$_SESSION["account_holder"]</code></td><td>Rohan DR</td></tr>
-<tr><td><code>$_SESSION["account_number"]</code></td><td>123456789012</td></tr>
-<tr><td><code>$_SESSION["bank_name"]</code></td><td>Sample National Bank</td></tr>
-<tr><td><code>$_SESSION["ifsc_code"]</code></td><td>SNBK0001234</td></tr>
-<tr><td><code>$_SESSION["branch"]</code></td><td>Hubli</td></tr>
+            <?php
+            foreach ($_SESSION as $key => $value) {
+                echo "<tr><td><code>\$_SESSION[\"$key\"]</code></td><td>$value</td></tr>\n";
+            }
+            ?>
         </table>
 
         <p class="note">Now open Page 2. It does not set any values. It only reads them from the session.</p>
-        <p><a class="button" href="bank-details.html">Go to Page 2: Display Bank Details &rarr;</a></p>
+        <p><a class="button" href="bank_details.php">Go to Page 2: Display Bank Details &rarr;</a></p>
     </div>
 
     <div class="section">

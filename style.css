@@ -104,3 +104,17 @@ a {
 .section {
     overflow-x: auto;
 }
+
+.button {
+    display: inline-block;
+    background: #2980b9;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #1f6391;
+}

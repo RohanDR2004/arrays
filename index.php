@@ -1,7 +1,7 @@
 <?php
 
-// The current task (Task 26) lives in details.php
-header("Location: details.php");
+// The current task (Task 28) lives in bank_session.php
+header("Location: bank_session.php");
 exit;
 
 ?>

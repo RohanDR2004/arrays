@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Details - Read from Session</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Task 28: Creating and Displaying Bank Details with PHP Sessions</h1>
+
+    <div class="section">
+        <h2>Page 2: Displaying Bank Details from the Session (bank_details.php)</h2>
+        <pre>session_start();
+
+echo $_SESSION["account_holder"];
+echo $_SESSION["account_number"];
+...</pre>
+
+        
+            <p class="result">Bank details received from the session.</p>
+            <p>Session ID: <code>ooivabru1bn7jn3c0r8v0gtij6</code> (same as Page 1)</p>
+
+            <table>
+                <tr><th>Field</th><th>Value</th></tr>
+                <tr><td>Account Holder Name</td><td>Rohan DR</td></tr>
+                <tr><td>Account Number</td><td>123456789012</td></tr>
+                <tr><td>Bank Name</td><td>Sample National Bank</td></tr>
+                <tr><td>IFSC Code</td><td>SNBK0001234</td></tr>
+                <tr><td>Branch</td><td>Hubli</td></tr>
+            </table>
+
+            <p class="note">These values were never set on this page. They were stored in $_SESSION on Page 1
+                and passed to this page through the session.</p>
+
+        
+        <p><a class="button" href="index.html">&larr; Back to Page 1</a></p>
+    </div>
+</div>
+</body>
+</html>

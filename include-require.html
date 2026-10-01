@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Include and Require in PHP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Task 26: Defining and Including PHP Files for Student Information Display</h1>
+
+    <div class="section">
+        <h2>Student Information (details.php)</h2>
+        <table>
+            <tr><th>No.</th><th>Name</th><th>Age</th><th>DOB</th></tr>
+            <tr><td>1</td><td>Rohan</td><td>22</td><td>15-05-2004</td></tr>
+<tr><td>2</td><td>Rahul</td><td>21</td><td>20-08-2005</td></tr>
+<tr><td>3</td><td>Arun</td><td>23</td><td>02-01-2003</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Including my_name.php</h2>
+        <p>my_name.php contains: <code>echo "My Name: Rohan DR";</code></p>
+
+        <h3>1. include "my_name.php";</h3>
+        <p class="result">My Name: Rohan DR</p>
+        <p class="note">include adds the file every time it is called. If the file is missing, PHP shows a warning and continues.</p>
+
+        <h3>2. require "my_name.php";</h3>
+        <p class="result">My Name: Rohan DR</p>
+        <p class="note">require also adds the file every time. If the file is missing, PHP stops with a fatal error.</p>
+
+        <h3>3. include_once "my_name.php";</h3>
+        <p class="result">Not included again: my_name.php was already included above.</p>
+        <p class="note">include_once adds the file only if it has not been included before. It was already included in steps 1 and 2, so it is skipped.</p>
+
+        <h3>4. require_once "my_name.php";</h3>
+        <p class="result">Not included again: my_name.php was already included above.</p>
+        <p class="note">require_once works like require, but adds the file only once. It is skipped here for the same reason.</p>
+    </div>
+
+    <div class="section">
+        <h2>Previous Tasks</h2>
+        <ul>
+            <li><a href="loop-multiplication.html">Task 24: Loop-Based Multiplication Function</a></li>
+            <li><a href="global-variable-functions.html">Task 22: Global Variable Add and Subtract Functions</a></li>
+            <li><a href="associative-array-loops.html">Task 20: Multidimensional Associative Array Loops</a></li>
+            <li><a href="conditional-statements.html">Task 18: Conditional Statements (Student Performance)</a></li>
+            <li><a href="comparison-logical-operators.html">Task 16: Comparison and Logical Operators</a></li>
+            <li><a href="multidimensional-arrays.html">Multidimensional Arrays</a></li>
+            <li><a href="basic-arrays.html">Basic Arrays</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
